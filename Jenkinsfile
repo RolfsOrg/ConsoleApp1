@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Restore Packages') {
       steps {
-        echo 'Restore packages here...'
+        C:\Rolf\Tools\NuGet\nuget.exe restore
       }
     }
     stage('Build') {
