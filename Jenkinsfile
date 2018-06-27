@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Restore Packages') {
       steps {
-        echo 'Restore packages here...'
+        echo 'Restore packages here 2...'
       }
     }
     stage('Build') {
