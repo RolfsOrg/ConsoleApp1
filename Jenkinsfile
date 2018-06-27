@@ -11,5 +11,30 @@ pipeline {
         echo 'Perform build here...'
       }
     }
+    stage('Run Tests') {
+      steps {
+        echo 'Perform testing here...'
+      }
+    }
+    stage('Inspect') {
+      steps {
+        echo 'Perform inspection here...'
+      }
+    }
+    stage('Generate Documentation') {
+      steps {
+        echo 'Generate documentation here...'
+      }
+    }
+    stage('Package') {
+      steps {
+        echo 'Perform packaging here...'
+      }
+    }
+    stage('Publish') {
+      steps {
+        echo 'Perform publishing here...'
+      }
+    }
   }
 }
