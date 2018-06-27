@@ -4,6 +4,7 @@ pipeline {
     stage('Prepare') {
       steps {
         echo 'Prepare here...'
+        currentBuild.description = "my new description"
       }
     }
     stage('Restore Packages') {
