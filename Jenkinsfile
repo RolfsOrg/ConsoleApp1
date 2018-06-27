@@ -1,11 +1,16 @@
 pipeline {
   agent any
+  
+  options {
+    disableConcurrentBuilds()
+  }
+  
   stages {
     stage('Prepare') {
       steps {
         echo 'Prepare here...'
         script {
-          currentBuild.displayName = "20180627.1722"
+          currentBuild.displayName = env.BUILD_NUMBER_TIMESTAMP
           currentBuild.description = "my new description" 
         }
       }
