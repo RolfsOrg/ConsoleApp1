@@ -1,6 +1,11 @@
 pipeline {
   agent any
   stages {
+    stage('Prepare') {
+      steps {
+        currentBuild.number = env.BUILD_NUMBER_TIMESTAMP
+      }
+    }
     stage('Restore Packages') {
       steps {
         echo 'Restore packages here...'
