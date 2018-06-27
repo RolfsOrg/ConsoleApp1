@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Prepare') {
       steps {
-        currentBuild.description = 'MyNumber'
+        echo currentBuild.number
       }
     }
     stage('Restore Packages') {
