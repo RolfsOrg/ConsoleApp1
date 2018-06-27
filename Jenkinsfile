@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Prepare here...'
         script {
-          currentBuild.number = env.BUILD_NUMBER_TIMESTAMP
+          // currentBuild.number = 
           currentBuild.description = "my new description" 
         }
       }
