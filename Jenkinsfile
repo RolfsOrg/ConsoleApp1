@@ -5,7 +5,7 @@ pipeline {
       steps {
         echo 'Prepare here...'
         script {
-          currentBuild.id = "20180627.1722"
+          currentBuild.displayName = "20180627.1722"
           currentBuild.description = "my new description" 
         }
       }
