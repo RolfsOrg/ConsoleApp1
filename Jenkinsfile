@@ -1,14 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('name1') {
+    stage('Restore Packages') {
       steps {
-        
+        echo 'Restore packages here...'
       }
     }
-    stage('name2') {
+    stage('Build') {
       steps {
-        
+        echo 'Perform build here...'
       }
     }
   }
