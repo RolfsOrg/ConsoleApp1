@@ -21,7 +21,9 @@ pipeline {
     }
     stage('Build') {
       steps {
-        echo 'Perform build here...'
+        bat script: """
+          "C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin\MSBuild.exe"
+         """
       }
     }
     stage('Run Tests') {
