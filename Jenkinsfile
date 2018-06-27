@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Restore Packages') {
       steps {
-        C:\Rolf\Tools\NuGet\nuget.exe restore
+        bat script: 'C:\\Rolf\\Tools\\NuGet\\nuget.exe restore'
       }
     }
     stage('Build') {
