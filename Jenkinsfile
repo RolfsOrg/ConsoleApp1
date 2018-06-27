@@ -11,7 +11,6 @@ pipeline {
         echo 'Prepare here...'
         script {
           currentBuild.displayName = env.BUILD_NUMBER_TIMESTAMP
-          currentBuild.description = "my new description" 
         }
       }
     }
