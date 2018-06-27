@@ -4,7 +4,10 @@ pipeline {
     stage('Prepare') {
       steps {
         echo 'Prepare here...'
-        currentBuild.description = "my new description"
+        script {
+          currentBuild.number = env.BUILD_NUMBER_TIMESTAMP
+          currentBuild.description = "my new description" 
+        }
       }
     }
     stage('Restore Packages') {
