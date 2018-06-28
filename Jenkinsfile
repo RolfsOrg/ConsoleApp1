@@ -1,3 +1,14 @@
+class Utility {                       
+
+    def emailBody() { 
+        return """
+          This is the email body
+          And this as well
+          and finally this!!!
+        """
+    }
+}
+
 pipeline {
   agent any
   
@@ -74,6 +85,7 @@ pipeline {
     always {
       echo 'Cleanup Workspace'
       // cleanWs()
+      echo Utility.emailBody()
     }
   }
 }
