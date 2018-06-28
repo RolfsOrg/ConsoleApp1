@@ -81,14 +81,10 @@ pipeline {
            ]
           }"""
           def buildInfo = Artifactory.newBuildInfo()
-          
-          // def buildInfo = server.upload uploadSpec
-
           buildInfo.number = "${env.BUILD_NUMBER_TIMESTAMP}"
           buildInfo.env.capture = true
           server.upload spec: uploadSpec, buildInfo: buildInfo
-
-          server.publishBuildInfo buildInfo
+          // server.publishBuildInfo buildInfo
         }
       }
     }
