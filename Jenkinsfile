@@ -1,6 +1,6 @@
 class Utility {                       
 
-    static string emailBody() { 
+    public static def emailBody() { 
         return """
           This is the email body
           And this as well
