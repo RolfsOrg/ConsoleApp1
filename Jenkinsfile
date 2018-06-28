@@ -50,7 +50,9 @@ pipeline {
     }
     stage('Build') {
       steps {
-        bat script: "${ToolPath.MSBuild15} /t:Build /p:OutDir=BuildOutput"
+        bat script: """
+            "${ToolPath.MSBuild15}" /t:Build /p:OutDir=BuildOutput
+        """
       }
     }
     stage('Run Tests') {
