@@ -1,4 +1,4 @@
-class Utility {                       
+static class Utility {                       
 
     def emailBody() { 
         return """
