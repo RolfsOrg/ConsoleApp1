@@ -45,7 +45,7 @@ pipeline {
       steps {
         echo 'Perform packaging here...'
         powershell script:"""
-          Compress-Archive -Path 'BuildOutput\*' -DestinationPath 'BuildOutput\Package.zip'
+          Compress-Archive -Path 'BuildOutput\\*' -DestinationPath 'BuildOutput\\Package.zip'
         """
       }
     }
