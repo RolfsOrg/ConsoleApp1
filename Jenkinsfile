@@ -77,6 +77,12 @@ pipeline {
               }
            ]
           }"""
+          def buildInfo = Artifactory.newBuildInfo()
+          // buildInfo.name = "MyModule-${env.BUILD_NUMBER_TIMESTAMP}"
+          buildInfo.number = "${env.BUILD_NUMBER_TIMESTAMP}"
+          buildInfo.env.capture = true
+          server.publishBuildInfo buildInfo
+            
           server.upload(uploadSpec)
         }
       }
