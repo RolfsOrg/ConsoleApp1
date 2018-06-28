@@ -44,6 +44,9 @@ pipeline {
     stage('Package') {
       steps {
         echo 'Perform packaging here...'
+        powershell script:"""
+          Compress-Archive -Path 'BuildOutput\*' -DestinationPath 'BuildOutput\Package.zip'
+        """
       }
     }
     stage('Publish') {
@@ -54,8 +57,8 @@ pipeline {
   }
   post {
     always {
-      // cleanWs()
       echo 'Cleanup Workspace'
+      // cleanWs()
     }
   }
 }
