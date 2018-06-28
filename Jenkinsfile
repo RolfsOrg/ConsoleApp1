@@ -51,7 +51,7 @@ pipeline {
       steps {
         echo 'Generate documentation here...'
         bat script: """
-            "C:\Program Files\doxygen\bin\doxygen"
+            "C:\\Program Files\\doxygen\\bin\\doxygen"
         """
       }
     }
