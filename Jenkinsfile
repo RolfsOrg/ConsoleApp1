@@ -4,6 +4,11 @@ class Constants {
     public static def PackageArchiveName = 'Package'
 }
 
+class ToolPath {
+    public static def NuGetExe = 'C:\\Rolf\\Tools\\NuGet\\nuget.exe'
+    public static def MSBuild15 = 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\MSBuild.exe'
+}
+
 class Utility {                       
 
     public static def emailBody() { 
@@ -39,13 +44,13 @@ pipeline {
     }
     stage('Restore Packages') {
       steps {
-        bat script: 'C:\\Rolf\\Tools\\NuGet\\nuget.exe restore'
+        bat script: "${ToolPath.NuGetExe} restore"
       }
     }
     stage('Build') {
       steps {
         bat script: """
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\MSBuild.exe" /t:Build /p:OutDir="BuildOutput"
+          "${ToolPath.MSBuild15}" /t:Build /p:OutDir="BuildOutput"
          """
       }
     }
