@@ -5,8 +5,9 @@ class Constants {
 }
 
 class ToolPath {
-    public static def NuGetExe = 'C:\\Rolf\\Tools\\NuGet\\nuget.exe'
+    public static def NuGet = 'C:\\Rolf\\Tools\\NuGet\\nuget.exe'
     public static def MSBuild15 = 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\MSBuild.exe'
+    public static def Doxygen = 'C:\\Program Files\\doxygen\\bin\\doxygen'
 }
 
 class Helper {                       
@@ -44,7 +45,7 @@ pipeline {
     }
     stage('Restore Packages') {
       steps {
-        bat script: "${ToolPath.NuGetExe} restore"
+        bat script: "${ToolPath.NuGet} restore"
       }
     }
     stage('Build') {
@@ -68,7 +69,7 @@ pipeline {
       steps {
         echo 'Generate documentation here...'
         bat script: """
-            "C:\\Program Files\\doxygen\\bin\\doxygen"
+            "${ToolPath.Doxygen}"
         """
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'DoxygenOutput\\html', reportFiles: 'index.html', reportName: 'HTML Documentation', reportTitles: 'Documentation'])
       }
