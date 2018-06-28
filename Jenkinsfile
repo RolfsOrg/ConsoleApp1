@@ -50,9 +50,7 @@ pipeline {
     }
     stage('Build') {
       steps {
-        bat script: """
-          "${ToolPath.MSBuild15}" /t:Build /p:OutDir="BuildOutput"
-         """
+        bat script: "${ToolPath.MSBuild15}" /t:Build /p:OutDir="BuildOutput"
       }
     }
     stage('Run Tests') {
@@ -68,9 +66,7 @@ pipeline {
     stage('Generate Documentation') {
       steps {
         echo 'Generate documentation here...'
-        bat script: """
-            "${ToolPath.Doxygen}"
-        """
+        bat script: "${ToolPath.Doxygen} Doxyfile"
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'DoxygenOutput\\html', reportFiles: 'index.html', reportName: 'HTML Documentation', reportTitles: 'Documentation'])
       }
     }
