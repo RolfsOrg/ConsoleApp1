@@ -1,5 +1,9 @@
 #!groovy
 
+class Constants {
+    PackageArchiveName = 'Package'
+}
+
 class Utility {                       
 
     public static def emailBody() { 
@@ -67,8 +71,7 @@ pipeline {
     stage('Package') {
       steps {
         echo 'Perform packaging here...'
-        powershell script: Utility.getPackageScript('Package')
-          // Compress-Archive -Path 'BuildOutput\\*' -DestinationPath 'BuildOutput\\Package.zip'
+        powershell script: Utility.getPackageScript(Constants.PackageArchiveName)
       }
     }
     stage('Publish') {
@@ -79,7 +82,7 @@ pipeline {
           def uploadSpec = """{
             "files": [
               {
-                "pattern": "BuildOutput//Package.zip",
+                "pattern": "BuildOutput//${Constants.PackageArchiveName}.zip",
                 "target": "generic-local//MyOrg//MyModule//MyModule-${env.BUILD_NUMBER_TIMESTAMP}.zip",
                 "props": "MyProp1=MyProp1.Value;MyProp2=MyProp2.Value;MyProp3=MyProp3.Value"
               }
