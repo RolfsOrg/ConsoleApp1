@@ -67,7 +67,7 @@ pipeline {
         echo 'Perform inspection here...'
       }
     }
-    stage('Generate Documentation') {
+    stage('Generate Docs') {
       steps {
         echo 'Generate documentation here...'
         bat script: """
