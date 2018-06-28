@@ -53,6 +53,7 @@ pipeline {
         bat script: """
             "C:\\Program Files\\doxygen\\bin\\doxygen"
         """
+        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'DoxygenOutput\\html', reportFiles: 'index.html', reportName: 'HTML Documentation', reportTitles: 'Documentation'])
       }
     }
     stage('Package') {
