@@ -1,7 +1,7 @@
 #!groovy
 
 class Constants {
-    PackageArchiveName = 'Package'
+    public static def PackageArchiveName = 'Package'
 }
 
 class Utility {                       
