@@ -45,7 +45,9 @@ pipeline {
     }
     stage('Restore Packages') {
       steps {
-        bat script: "${ToolPath.NuGet} restore"
+        bat script: """
+            "${ToolPath.NuGet}" restore
+        """
       }
     }
     stage('Build') {
@@ -68,7 +70,9 @@ pipeline {
     stage('Generate Documentation') {
       steps {
         echo 'Generate documentation here...'
-        bat script: "${ToolPath.Doxygen} Doxyfile"
+        bat script: """
+            "${ToolPath.Doxygen}" Doxyfile
+        """
         publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'DoxygenOutput\\html', reportFiles: 'index.html', reportName: 'HTML Documentation', reportTitles: 'Documentation'])
       }
     }
