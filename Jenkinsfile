@@ -1,3 +1,5 @@
+#!groovy
+
 class Utility {                       
 
     public static def emailBody() { 
@@ -83,6 +85,7 @@ pipeline {
 
           buildInfo.number = "${env.BUILD_NUMBER_TIMESTAMP}"
           buildInfo.env.capture = true
+          buildInfo.myProp = 'MyProp.Value'
           server.upload spec: uploadSpec, buildInfo: buildInfo
 
           server.publishBuildInfo buildInfo
