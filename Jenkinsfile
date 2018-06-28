@@ -38,7 +38,10 @@ pipeline {
     }
     stage('Generate Documentation') {
       steps {
-        echo 'Generate documentation here...'
+        echo '''Generate documentation here...
+                and here
+                and here as well!
+        '''
       }
     }
     stage('Package') {
