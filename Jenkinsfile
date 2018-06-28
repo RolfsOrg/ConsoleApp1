@@ -52,6 +52,18 @@ pipeline {
     stage('Publish') {
       steps {
         echo 'Perform publishing here...'
+        script {
+          def server = Artifactory.server 'MyArtifactorySrv'
+          def uploadSpec = """{
+            "files": [
+              {
+                "pattern": "BuildOutput//Package.zip",
+                "target": "generic-local//MyOrg//MyModule//MyModule-${env.BUILD_NUMBER_TIMESTAMP}.zip"
+              }
+           ]
+          }"""
+          server.upload(uploadSpec)
+        }
       }
     }
   }
