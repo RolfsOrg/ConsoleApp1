@@ -49,10 +49,10 @@ pipeline {
     }
     stage('Generate Documentation') {
       steps {
-        echo '''Generate documentation here...
-                and here
-                and here as well!
-        '''
+        echo 'Generate documentation here...'
+        bat script: """
+            "C:\Program Files\doxygen\bin\doxygen"
+        """
       }
     }
     stage('Package') {
