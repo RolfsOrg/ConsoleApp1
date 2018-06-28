@@ -9,7 +9,7 @@ class ToolPath {
     public static def MSBuild15 = 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\MSBuild.exe'
 }
 
-class Utility {                       
+class Helper {                       
 
     public static def emailBody() { 
         return """
@@ -76,7 +76,7 @@ pipeline {
     stage('Package') {
       steps {
         echo 'Perform packaging here...'
-        powershell script: Utility.getPackageScript(Constants.PackageArchiveName)
+        powershell script: Helper.getPackageScript(Constants.PackageArchiveName)
       }
     }
     stage('Publish') {
@@ -106,7 +106,7 @@ pipeline {
     always {
       echo 'Cleanup Workspace'
       // cleanWs()
-      echo Utility.emailBody()
+      echo Helper.emailBody()
     }
   }
 }
