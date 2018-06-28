@@ -75,7 +75,7 @@ pipeline {
             "files": [
               {
                 "pattern": "BuildOutput//Package.zip",
-                "target": "generic-local//MyOrg//MyModule//MyModule-${env.BUILD_NUMBER_TIMESTAMP}.zip"
+                "target": "generic-local//MyOrg//MyModule//MyModule-${env.BUILD_NUMBER_TIMESTAMP}.zip",
                 "props": "MyProp1=MyProp1.Value;MyProp2=MyProp2.Value;MyProp3=MyProp3.Value"
               }
            ]
