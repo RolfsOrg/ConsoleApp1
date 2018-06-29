@@ -43,7 +43,7 @@ pipeline {
           currentBuild.displayName = env.BUILD_NUMBER_TIMESTAMP
         }
         bat script: """
-            "${ToolPath.SQScannerMSBuild}" begin /k:MyConsoleApp
+            "${ToolPath.SQScannerMSBuild}" begin /k:MyConsoleApp /v:${env.BUILD_NUMBER_TIMESTAMP}
         """
       }
     }
