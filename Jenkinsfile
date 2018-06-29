@@ -8,6 +8,7 @@ class ToolPath {
     public static def NuGet = 'C:\\Rolf\\Tools\\NuGet\\nuget.exe'
     public static def MSBuild15 = 'C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\MSBuild\\15.0\\Bin\\MSBuild.exe'
     public static def Doxygen = 'C:\\Program Files\\doxygen\\bin\\doxygen'
+    public static def SQScannerMSBuild = 'C:\Rolf\RnD\SonarScanner.MSBuild\SonarScanner.MSBuild.exe'
 }
 
 class Helper {                       
