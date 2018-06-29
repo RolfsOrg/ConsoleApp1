@@ -42,6 +42,9 @@ pipeline {
         script {
           currentBuild.displayName = env.BUILD_NUMBER_TIMESTAMP
         }
+        bat script: """
+            "${ToolPath.SQScannerMSBuild}" begin /k:MyConsoleApp
+        """
       }
     }
     stage('Restore Packages') {
@@ -66,6 +69,9 @@ pipeline {
     stage('Inspect') {
       steps {
         echo 'Perform inspection here...'
+        bat script: """
+            "${ToolPath.SQScannerMSBuild}" end
+        """
       }
     }
     stage('Generate Docs') {
