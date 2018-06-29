@@ -42,9 +42,11 @@ pipeline {
         script {
           currentBuild.displayName = env.BUILD_NUMBER_TIMESTAMP
         }
-        bat script: """
-            "${ToolPath.SQScannerMSBuild}" begin /k:MyConsoleApp /v:${env.BUILD_NUMBER_TIMESTAMP}
-        """
+        withSonarQubeEnv('MySonarQubeSrv') {          
+            bat script: """
+                "${ToolPath.SQScannerMSBuild}" begin /k:MyConsoleApp /v:${env.BUILD_NUMBER_TIMESTAMP}
+            """
+        }
       }
     }
     stage('Restore Packages') {
@@ -69,9 +71,11 @@ pipeline {
     stage('Inspect') {
       steps {
         echo 'Perform inspection here...'
-        bat script: """
-            "${ToolPath.SQScannerMSBuild}" end
-        """
+        withSonarQubeEnv('MySonarQubeSrv') {          
+            bat script: """
+                "${ToolPath.SQScannerMSBuild}" end
+            """
+        }
       }
     }
     stage('Generate Docs') {
