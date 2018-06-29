@@ -1,1 +1,1 @@
-[![Quality Gate](http://localhost:9000/api/badges/gate?key=MyConsoleApp)](http://localhost:9000/dashboard/index/MyConsoleApp)
+[![Quality Gate](http://175.32.32.191:59000/api/badges/gate?key=MyConsoleApp)](http://175.32.32.191:59000/dashboard/index/MyConsoleApp)
