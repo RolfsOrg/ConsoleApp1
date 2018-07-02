@@ -128,8 +128,8 @@ pipeline {
           server.publishBuildInfo buildInfo
           
           bat script: """
-            git tag 
-            git push origin 
+            git tag ${env.BUILD_NUMBER_TIMESTAMP} ${env.GIT_COMMIT_HASH}
+            git push origin ${env.BUILD_NUMBER_TIMESTAMP}
           """
         }
       }
