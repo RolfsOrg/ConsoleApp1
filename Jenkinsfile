@@ -35,9 +35,14 @@ pipeline {
     disableConcurrentBuilds()
   }
   
+  environment {
+    GIT_COMMIT_HASH = powershell returnStdout: true, script: """ git log --pretty=format:"%h" -n 1 """
+  }
+  
   stages {
     stage('Prepare') {
       steps {
+        echo "Hash: ${env.GIT_COMMIT_HASH}"
         echo 'Prepare here...'
         script {
           currentBuild.displayName = env.BUILD_NUMBER_TIMESTAMP
@@ -121,6 +126,11 @@ pipeline {
           buildInfo.env.capture = true
           server.upload spec: uploadSpec, buildInfo: buildInfo
           server.publishBuildInfo buildInfo
+          
+          bat script: """
+            git tag 
+            git push origin 
+          """
         }
       }
     }
