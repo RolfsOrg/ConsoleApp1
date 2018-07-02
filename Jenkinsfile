@@ -42,7 +42,6 @@ pipeline {
   stages {
     stage('Prepare') {
       steps {
-        echo "Hash: ${env.GIT_COMMIT_HASH}"
         echo 'Prepare here...'
         script {
           currentBuild.displayName = env.BUILD_NUMBER_TIMESTAMP
@@ -87,7 +86,7 @@ pipeline {
       agent none
 
       steps {
-        timeout(time: 30, unit: 'SECONDS') {
+        timeout(time: 1, unit: 'MINUTES') {
           waitForQualityGate abortPipeline: true
         }
       }
